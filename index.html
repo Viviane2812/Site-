@@ -1,0 +1,522 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Viviane Ferreira Corporativo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+    /* Layout: página corporativa em faixas alternadas (tinta / porcelana / branco), coluna única de 1180px, seções em linhas ordenadas por hairlines. A ousadia fica na tipografia do título; o resto é contido. */
+    :root {
+        --ink: #0B1220;
+        --ink-2: #131C30;
+        --ink-3: #1D283F;
+        --brass: #C8A468;
+        --brass-lt: #E0C793;
+        --brass-ink: #7A5A26;
+        --porcelain: #F2F3F1;
+        --paper: #FFFFFF;
+        --slate: #465066;
+        --on-ink: #EDEFF4;
+        --on-ink-2: #A9B2C4;
+        --line-light: #D9DCE0;
+        --line-dark: rgba(237, 239, 244, 0.16);
+
+        --f-display: 'Bodoni Moda', 'Didot', Georgia, serif;
+        --f-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        --f-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+        --gl: max(24px, env(safe-area-inset-left, 0px));
+        --gr: max(24px, env(safe-area-inset-right, 0px));
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+        font-family: var(--f-body);
+        font-size: 16px;
+        line-height: 1.65;
+        background: var(--porcelain);
+        color: var(--ink);
+    }
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        background: var(--ink);
+        z-index: 10;
+    }
+
+    h1, h2, h3 { font-family: var(--f-display); font-weight: 500; text-wrap: balance; letter-spacing: -0.01em; }
+    a { color: inherit; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding-left: var(--gl); padding-right: var(--gr); }
+    section[id] { scroll-margin-top: 72px; }
+    .band { padding-block: 96px; }
+    .on-ink { background: var(--ink); color: var(--on-ink); }
+    .on-paper { background: var(--paper); }
+
+    .eyebrow {
+        font-family: var(--f-mono);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brass-ink);
+        margin-bottom: 20px;
+    }
+    .on-ink .eyebrow { color: var(--brass); }
+
+    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; margin-bottom: 56px; }
+    .section-head h2 { font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.1; }
+    .section-head p { color: var(--slate); max-width: 52ch; }
+    .on-ink .section-head p { color: var(--on-ink-2); }
+
+    /* Botões */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 28px;
+        font-family: var(--f-body);
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        border: 1px solid var(--brass);
+        transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .btn-primary { background: var(--brass); color: var(--ink); }
+    .btn-primary:hover { background: var(--brass-lt); border-color: var(--brass-lt); }
+    .btn-ghost { background: transparent; color: var(--on-ink); border-color: var(--line-dark); }
+    .btn-ghost:hover { border-color: var(--brass); color: var(--brass-lt); }
+    .btn-sm { padding: 10px 18px; font-size: 12px; }
+
+    /* Topo */
+    .topbar {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 20;
+        background: var(--ink);
+        color: var(--on-ink);
+        border-bottom: 1px solid var(--line-dark);
+    }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 64px; }
+    .brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1.2; }
+    .brand strong { font-family: var(--f-display); font-weight: 600; font-size: 19px; letter-spacing: 0.14em; text-transform: uppercase; }
+    .brand span { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass); }
+    .nav { display: flex; gap: 28px; }
+    .nav a { font-size: 14px; text-decoration: none; color: var(--on-ink-2); transition: color 0.2s; }
+    .nav a:hover { color: var(--on-ink); }
+
+    /* Hero */
+    .hero { padding-block: 88px 96px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr); gap: 64px; align-items: start; }
+    .hero h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); line-height: 1.04; font-weight: 500; margin-bottom: 28px; }
+    .hero h1 em { font-style: italic; color: var(--brass-lt); }
+    .hero .lead { font-size: 1.125rem; color: var(--on-ink-2); max-width: 54ch; margin-bottom: 40px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .ficha { border: 1px solid var(--line-dark); background: var(--ink-2); padding: 8px 28px; min-width: 0; }
+    .ficha dl > div { padding-block: 20px; border-bottom: 1px solid var(--line-dark); }
+    .ficha dl > div:last-child { border-bottom: 0; }
+    .ficha dt { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass); margin-bottom: 6px; }
+    .ficha dd { font-family: var(--f-display); font-size: 1.35rem; line-height: 1.3; }
+
+    /* Fatos */
+    .facts { background: var(--paper); border-bottom: 1px solid var(--line-light); }
+    .facts-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .fact { padding: 40px 24px 40px 0; border-right: 1px solid var(--line-light); }
+    .fact + .fact { padding-left: 32px; }
+    .fact:last-child { border-right: 0; }
+    .fact b { display: block; font-family: var(--f-display); font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+    .fact span { font-size: 14px; color: var(--slate); }
+
+    /* Frentes */
+    .pillar { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.1fr) minmax(0, 1.1fr); gap: 24px 48px; padding-block: 44px; border-top: 1px solid var(--ink); }
+    .pillar:last-child { border-bottom: 1px solid var(--ink); }
+    .pillar h3 { font-size: 1.85rem; line-height: 1.15; }
+    .pillar .what { color: var(--slate); }
+    .checklist { list-style: none; display: grid; gap: 10px; }
+    .checklist li { position: relative; padding-left: 22px; font-size: 15px; }
+    .checklist li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; background: var(--brass); }
+
+    /* Processo */
+    .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; list-style: none; }
+    .step { padding: 28px 24px 8px 0; border-top: 1px solid var(--line-dark); position: relative; }
+    .step + .step { padding-left: 24px; }
+    .step::before { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; background: var(--brass); }
+    .step + .step::before { left: 24px; }
+    .step .n { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--brass); margin-bottom: 14px; display: block; }
+    .step h3 { font-size: 1.35rem; margin-bottom: 10px; }
+    .step p { font-size: 14.5px; color: var(--on-ink-2); }
+
+    /* Mídia paga */
+    .media-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 56px; align-items: start; }
+    .media-grid h2 { font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.1; margin-bottom: 20px; }
+    .media-grid p { color: var(--slate); margin-bottom: 16px; max-width: 48ch; }
+    .table-scroll { overflow-x: auto; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+    table { width: 100%; border-collapse: collapse; min-width: 520px; }
+    th { font-family: var(--f-mono); font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; text-align: left; color: var(--brass-ink); padding: 16px 16px 12px 0; border-bottom: 1px solid var(--line-light); }
+    td { padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line-light); font-size: 15px; vertical-align: top; }
+    tr:last-child td { border-bottom: 0; }
+    td:first-child { font-family: var(--f-display); font-size: 1.15rem; white-space: nowrap; }
+
+    /* Cobertura */
+    .regions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line-dark); }
+    .region { padding: 28px 20px 8px 0; }
+    .region + .region { padding-left: 20px; border-left: 1px solid var(--line-dark); }
+    .region h3 { font-size: 1.35rem; margin-bottom: 4px; }
+    .region .count { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brass); margin-bottom: 14px; display: block; }
+    .region p { font-family: var(--f-mono); font-size: 13px; color: var(--on-ink-2); line-height: 1.9; }
+    .coverage-note { margin-top: 36px; color: var(--on-ink-2); max-width: 70ch; }
+
+    /* Perfil */
+    .fit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+    .fit h2 { font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.1; margin-bottom: 20px; }
+    .fit > div > p { color: var(--slate); max-width: 48ch; }
+    .fit .checklist li { padding-block: 16px; padding-left: 28px; border-bottom: 1px solid var(--line-light); font-size: 16px; }
+    .fit .checklist li:first-child { border-top: 1px solid var(--ink); }
+    .fit .checklist li::before { top: 1.45em; }
+    .fit .checklist { gap: 0; }
+
+    /* Perguntas */
+    .faq { max-width: 860px; border-top: 1px solid var(--ink); }
+    details { border-bottom: 1px solid var(--line-light); }
+    summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 0; font-family: var(--f-display); font-size: 1.3rem; line-height: 1.3; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-family: var(--f-mono); font-size: 22px; color: var(--brass-ink); flex: none; }
+    details[open] summary::after { content: "\2212"; }
+    details p { padding: 0 48px 26px 0; color: var(--slate); max-width: 64ch; }
+
+    /* Contato */
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 64px; align-items: start; }
+    .contact-grid h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); line-height: 1.08; margin-bottom: 24px; }
+    .contact-grid .lead { color: var(--on-ink-2); max-width: 50ch; margin-bottom: 36px; }
+    .briefing { border: 1px solid var(--line-dark); background: var(--ink-2); padding: 32px; min-width: 0; }
+    .briefing h3 { font-size: 1.3rem; margin-bottom: 18px; }
+    .briefing .checklist li { color: var(--on-ink); }
+    .briefing small { display: block; margin-top: 20px; color: var(--on-ink-2); font-size: 13px; }
+
+    footer { background: var(--ink); color: var(--on-ink-2); border-top: 1px solid var(--line-dark); font-size: 13px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; padding-block: 28px; }
+
+    /* Tablet */
+    @media (max-width: 1000px) {
+        .band { padding-block: 72px; }
+        .section-head, .hero-grid, .media-grid, .fit, .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+        .section-head { margin-bottom: 40px; }
+        .pillar { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 32px; }
+        .steps { grid-template-columns: minmax(0, 1fr); }
+        .step, .step + .step { padding: 24px 0 24px 28px; border-top: 0; border-left: 1px solid var(--line-dark); }
+        .step::before, .step + .step::before { top: 30px; left: -4px; }
+        .regions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .region, .region + .region { padding: 24px 16px 16px 0; border-left: 0; border-bottom: 1px solid var(--line-dark); }
+        .nav { display: none; }
+        .hero { padding-block: 56px 64px; }
+    }
+    /* Celular */
+    @media (max-width: 560px) {
+        .fact, .fact + .fact { padding: 28px 10px 28px 0; }
+        .fact + .fact { padding-left: 14px; }
+        .fact span { font-size: 12.5px; }
+        .regions { grid-template-columns: minmax(0, 1fr); }
+        .btn { width: 100%; justify-content: center; }
+        .topbar .btn { width: auto; }
+        .brand strong { font-size: 16px; }
+        .ficha { padding-inline: 20px; }
+        .briefing { padding: 24px; }
+        summary { font-size: 1.15rem; }
+        details p { padding-right: 0; }
+    }
+</style>
+
+<header class="topbar">
+    <div class="wrap">
+        <a class="brand" href="#inicio">
+            <strong>Viviane Ferreira</strong>
+            <span>Conteúdo · Vídeo · Marketing</span>
+        </a>
+        <nav class="nav" aria-label="Seções da página">
+            <a href="#frentes">Frentes</a>
+            <a href="#processo">Processo</a>
+            <a href="#midia">Mídia paga</a>
+            <a href="#cobertura">Cobertura</a>
+            <a href="#perguntas">Perguntas</a>
+        </nav>
+        <a class="btn btn-primary btn-sm" href="#contato">Solicitar diagnóstico</a>
+    </div>
+</header>
+
+<main id="inicio">
+
+    <section class="hero on-ink">
+        <div class="wrap hero-grid">
+            <div>
+                <p class="eyebrow">Marketing empresarial · Todo o Brasil</p>
+                <h1>Presença digital à altura da sua <em>empresa.</em></h1>
+                <p class="lead">Estruturamos o conteúdo, produzimos vídeos em qualquer cidade do país e conectamos tudo ao marketing empresarial e ao tráfego pago. Uma única direção para a comunicação de quem já tem operação consolidada.</p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#contato">Solicitar diagnóstico</a>
+                    <a class="btn btn-ghost" href="#processo">Ver como trabalhamos</a>
+                </div>
+            </div>
+            <aside class="ficha" aria-label="Resumo da atuação">
+                <dl>
+                    <div><dt>Experiência</dt><dd>Desde 2021</dd></div>
+                    <div><dt>Atuação</dt><dd>Todo o Brasil</dd></div>
+                    <div><dt>Frentes integradas</dt><dd>Conteúdo, vídeo, marketing e mídia paga</dd></div>
+                    <div><dt>Perfil atendido</dt><dd>Negócios de alto padrão</dd></div>
+                </dl>
+            </aside>
+        </div>
+    </section>
+
+    <div class="facts">
+        <div class="wrap facts-grid">
+            <div class="fact"><b>2021</b><span>Ano em que começamos a atuar</span></div>
+            <div class="fact"><b>27</b><span>Estados com captação presencial</span></div>
+            <div class="fact"><b>4</b><span>Frentes conduzidas em conjunto</span></div>
+        </div>
+    </div>
+
+    <section id="frentes" class="band">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Frentes de atuação</p>
+                    <h2>Quatro frentes, uma só direção.</h2>
+                </div>
+                <p>Cada frente tem entregas definidas e responde à mesma estratégia. O conteúdo orienta o vídeo, o vídeo alimenta os anúncios e os números voltam para o planejamento.</p>
+            </div>
+
+            <article class="pillar">
+                <h3>Estruturação de conteúdo</h3>
+                <p class="what">Definimos o que a empresa diz, para quem diz e em quais canais. O resultado é uma comunicação consistente, com a linguagem que o seu público de alto padrão espera.</p>
+                <ul class="checklist">
+                    <li>Diagnóstico de posicionamento e concorrência</li>
+                    <li>Linha editorial e pilares de conteúdo</li>
+                    <li>Calendário de publicações e roteiros</li>
+                    <li>Padrão de linguagem e identidade visual</li>
+                </ul>
+            </article>
+
+            <article class="pillar">
+                <h3>Videomaker em todo o Brasil</h3>
+                <p class="what">Produção audiovisual profissional, com captação presencial onde a sua empresa estiver. Cada vídeo nasce de um roteiro ligado ao objetivo comercial.</p>
+                <ul class="checklist">
+                    <li>Vídeos institucionais e de apresentação</li>
+                    <li>Conteúdo para redes sociais e para anúncios</li>
+                    <li>Cobertura de eventos, lançamentos e bastidores</li>
+                    <li>Captação presencial nos 27 estados</li>
+                </ul>
+            </article>
+
+            <article class="pillar">
+                <h3>Marketing empresarial</h3>
+                <p class="what">Planejamento de comunicação conectado às metas da diretoria, com prioridades claras e indicadores acompanhados todo mês.</p>
+                <ul class="checklist">
+                    <li>Planejamento trimestral e anual</li>
+                    <li>Proposta de valor e posicionamento de marca</li>
+                    <li>Materiais de apoio à equipe comercial</li>
+                    <li>Reuniões de resultado com a liderança</li>
+                </ul>
+            </article>
+
+            <article class="pillar">
+                <h3>Tráfego pago</h3>
+                <p class="what">Mídia paga para levar o conteúdo ao público certo. Os criativos saem da própria produção de vídeo, o que mantém a mensagem coerente do anúncio até o atendimento.</p>
+                <ul class="checklist">
+                    <li>Meta Ads, Google Ads, TikTok Ads e LinkedIn Ads</li>
+                    <li>Segmentação por perfil de decisor</li>
+                    <li>Criativos produzidos a partir dos vídeos da marca</li>
+                    <li>Relatório mensal com custo por oportunidade</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section id="processo" class="band on-ink">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Método de trabalho</p>
+                    <h2>Do diagnóstico à otimização, em cinco etapas.</h2>
+                </div>
+                <p>A sequência é a mesma em todos os projetos. Você sabe o que acontece em cada etapa, quem responde por ela e o que recebe ao final.</p>
+            </div>
+            <ol class="steps">
+                <li class="step">
+                    <span class="n">ETAPA 1</span>
+                    <h3>Diagnóstico</h3>
+                    <p>Reunião de alinhamento e análise do cenário atual de conteúdo, marca e anúncios.</p>
+                </li>
+                <li class="step">
+                    <span class="n">ETAPA 2</span>
+                    <h3>Estratégia</h3>
+                    <p>Posicionamento, linha editorial, metas e plano de canais aprovados com você.</p>
+                </li>
+                <li class="step">
+                    <span class="n">ETAPA 3</span>
+                    <h3>Produção</h3>
+                    <p>Roteiros, captação de vídeo e edição, com datas e responsáveis definidos.</p>
+                </li>
+                <li class="step">
+                    <span class="n">ETAPA 4</span>
+                    <h3>Distribuição</h3>
+                    <p>Publicação orgânica e campanhas de tráfego pago para o público selecionado.</p>
+                </li>
+                <li class="step">
+                    <span class="n">ETAPA 5</span>
+                    <h3>Otimização</h3>
+                    <p>Leitura mensal dos dados e ajustes na estratégia, nos criativos e nos investimentos.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="midia" class="band on-paper">
+        <div class="wrap media-grid">
+            <div>
+                <p class="eyebrow">Tráfego pago</p>
+                <h2>Cada canal com uma função definida.</h2>
+                <p>O tráfego pago entra depois que o conteúdo está estruturado. Assim o investimento em anúncios amplia uma mensagem já testada e não substitui a estratégia.</p>
+                <p>A escolha dos canais depende do seu público, do ciclo de venda e da meta do trimestre.</p>
+            </div>
+            <div class="table-scroll" role="region" aria-label="Canais de mídia paga" tabindex="0">
+                <table>
+                    <thead>
+                        <tr><th>Canal</th><th>Função</th><th>Público</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Meta Ads</td><td>Alcance e relacionamento com vídeo e imagem</td><td>Instagram e Facebook</td></tr>
+                        <tr><td>Google Ads</td><td>Captar quem já procura pelo seu serviço</td><td>Busca e YouTube</td></tr>
+                        <tr><td>LinkedIn Ads</td><td>Chegar a cargos de decisão e empresas-alvo</td><td>Profissionais e empresas</td></tr>
+                        <tr><td>TikTok Ads</td><td>Ampliar o alcance para novas audiências</td><td>Vídeos curtos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="cobertura" class="band on-ink">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Cobertura nacional</p>
+                    <h2>Captação presencial nos 27 estados.</h2>
+                </div>
+                <p>A produção de vídeo acontece onde está a sua operação, a sua obra, o seu evento ou o seu time. A edição e a estratégia seguem centralizadas.</p>
+            </div>
+            <div class="regions">
+                <div class="region">
+                    <h3>Norte</h3><span class="count">7 estados</span>
+                    <p>AC · AM · AP · PA · RO · RR · TO</p>
+                </div>
+                <div class="region">
+                    <h3>Nordeste</h3><span class="count">9 estados</span>
+                    <p>AL · BA · CE · MA · PB · PE · PI · RN · SE</p>
+                </div>
+                <div class="region">
+                    <h3>Centro-Oeste</h3><span class="count">3 estados + DF</span>
+                    <p>DF · GO · MT · MS</p>
+                </div>
+                <div class="region">
+                    <h3>Sudeste</h3><span class="count">4 estados</span>
+                    <p>ES · MG · RJ · SP</p>
+                </div>
+                <div class="region">
+                    <h3>Sul</h3><span class="count">3 estados</span>
+                    <p>PR · RS · SC</p>
+                </div>
+            </div>
+            <p class="coverage-note">Informe a cidade e a data desejada no primeiro contato. Confirmamos a logística da equipe e o cronograma de entrega junto com a proposta.</p>
+        </div>
+    </section>
+
+    <section id="perfil" class="band">
+        <div class="wrap fit">
+            <div>
+                <p class="eyebrow">Perfil de cliente</p>
+                <h2>Para quem esta estrutura faz sentido.</h2>
+                <p>Trabalhamos com empresas que tratam a comunicação como parte da estratégia comercial e querem um parceiro único para conduzi-la.</p>
+            </div>
+            <ul class="checklist">
+                <li>Empresas com operação consolidada e equipe comercial ativa</li>
+                <li>Negócios de ticket alto, em que a confiança pesa na decisão de compra</li>
+                <li>Marcas que precisam de padrão visual e de linguagem à altura do mercado em que atuam</li>
+                <li>Diretorias que querem unir conteúdo, vídeo e mídia paga sob uma só coordenação</li>
+                <li>Empresas com unidades ou operações em mais de uma região do país</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="perguntas" class="band on-paper">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Perguntas frequentes</p>
+                    <h2>O que costumam perguntar antes de começar.</h2>
+                </div>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>Vocês atendem empresas de qualquer estado?</summary>
+                    <p>Sim. A estratégia, o tráfego pago e a edição são feitos de forma remota para todo o Brasil. A captação de vídeo é presencial e a equipe se desloca até a sua cidade.</p>
+                </details>
+                <details>
+                    <summary>Preciso ter uma equipe de marketing interna?</summary>
+                    <p>Não é necessário. Se você já tem uma equipe, nós nos integramos a ela e dividimos as responsabilidades. Se não tem, conduzimos o planejamento, a produção e a mídia paga.</p>
+                </details>
+                <details>
+                    <summary>O que acontece depois do diagnóstico?</summary>
+                    <p>Você recebe uma proposta com as frentes recomendadas, as entregas de cada uma, o cronograma e o investimento. A contratação só acontece depois da sua aprovação.</p>
+                </details>
+                <details>
+                    <summary>Em quanto tempo aparecem os primeiros resultados?</summary>
+                    <p>O prazo depende do ponto de partida da empresa, do ciclo de venda e do investimento em mídia. Definimos metas e indicadores na etapa de estratégia e apresentamos a evolução todo mês.</p>
+                </details>
+                <details>
+                    <summary>O valor investido em anúncios está incluído no serviço?</summary>
+                    <p>Não. O investimento em mídia é pago diretamente às plataformas, na conta de anúncios da sua empresa. Nosso trabalho cobre o planejamento, a criação e a gestão das campanhas.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="band on-ink">
+        <div class="wrap contact-grid">
+            <div>
+                <p class="eyebrow">Diagnóstico inicial</p>
+                <h2>Vamos entender o momento da sua empresa.</h2>
+                <p class="lead">Conte o que você precisa e receba uma leitura inicial com as frentes que fazem sentido para o seu caso. A conversa acontece pelo WhatsApp.</p>
+                <a class="btn btn-primary" href="https://wa.me/5521964370025" target="_blank" rel="noopener">Solicitar diagnóstico</a>
+            </div>
+            <div class="briefing">
+                <h3>Envie na primeira mensagem</h3>
+                <ul class="checklist">
+                    <li>Nome da empresa e segmento de atuação</li>
+                    <li>Cidade e estado da operação</li>
+                    <li>Principal objetivo para os próximos 12 meses</li>
+                    <li>Se a empresa já investe em anúncios e onde</li>
+                </ul>
+                <small>Com essas informações, o primeiro retorno já chega com direcionamento.</small>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="wrap">
+        <span>&copy; 2026 Viviane Ferreira. Todos os direitos reservados.</span>
+        <span>Atuação em todo o Brasil · Desde 2021</span>
+    </div>
+</footer>
+
+</body></html>
